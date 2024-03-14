@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Open Code Editor</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Code Editor</title>
 </head>
 <body>
 
@@ -11,32 +11,38 @@
 
 <script>
 function openGitHubLink() {
-  // GitHub link
-  const githubLink = 'https://www.onlinegdb.com/';
+    // URL to open
+    const link = 'https://code-uzef.onrender.com/';
 
-  // Popup window dimensions and features
-  const width = 1000;
-  const height = 600;
-  const left = (window.innerWidth - width) / 2;
-  const top = (window.innerHeight - height) / 2;
+    // Popup window dimensions and features
+    const width = 1000;
+    const height = 600;
+    const left = (window.innerWidth - width) / 2;
+    const top = (window.innerHeight - height) / 2;
 
-  // Create an iframe
-  const iframe = document.createElement('iframe');
-  iframe.src = githubLink;
-  iframe.width = width;
-  iframe.height = height;
-  iframe.style.border = 'none'; // Hide the iframe border
+    // Open the popup window
+    const popupWindow = window.open('https://code-uzef.onrender.com/', 'Virtual Instance', `toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, copyhistory=no, width=${width}, height=${height}, top=${top}, left=${left}`);
 
-  // Open the popup window with the iframe
-  const popupWindow = window.open('', 'Virtual Instance', `width=${width},height=${height},left=${left},top=${top}`);
-  
-  // Set the title of the iframe window
-  popupWindow.document.title = 'ABC';
-  
-  // Set location to an empty string to remove about:blank
-  popupWindow.location = '';
-  
-  popupWindow.document.body.appendChild(iframe);
+    // Check if the popup was successfully opened
+    if (popupWindow) {
+        // Set the title of the popup window
+        popupWindow.document.title = 'ABC';
+
+        // Create an iframe for the content
+        const iframe = document.createElement('iframe');
+        iframe.src = link;
+        iframe.width = '100%';
+        iframe.height = '100%';
+        iframe.style.border = 'none'; // Hide the iframe border
+
+        // Wait until the popup window's document is ready
+        popupWindow.document.body.onload = function() {
+            popupWindow.document.body.appendChild(iframe);
+        };
+    } else {
+        // Popup was blocked or failed to open
+        alert('Popup window could not be opened. Please check your popup blocker settings.');
+    }
 }
 </script>
 
