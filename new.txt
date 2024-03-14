@@ -66,3 +66,6 @@ openPopup() {
       window.open(url, 'Solve Assignment', `width=${width},height=${height},left=${left},top=${top}`);
     
   }
+ <div class="d-flex justify-content-center my-2">
+        <button class="btn btn-success" (click)="openPopup()">Solve Assignment</button>
+    </div>
