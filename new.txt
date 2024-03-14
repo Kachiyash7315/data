@@ -48,3 +48,21 @@ function openGitHubLink() {
 
 </body>
 </html>
+
+
+openPopup() {
+    // Check if the necessary properties are defined
+    
+      // Construct the URL
+      const url = `https://code-uzef.onrender.com/&token=${this.token}`;
+
+      // Popup window dimensions and features
+      const width = 1000;
+      const height = 600;
+      const left = (window.innerWidth - width) / 2;
+      const top = (window.innerHeight - height) / 2;
+
+      // Open the popup window with the specified URL
+      window.open(url, 'Solve Assignment', `width=${width},height=${height},left=${left},top=${top}`);
+    
+  }
