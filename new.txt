@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Open Code Editor</title>
+</head>
+<body>
+
+<button onclick="openGitHubLink()">Open Code Editor</button>
+
+<script>
+function openGitHubLink() {
+  // GitHub link
+  const githubLink = 'https://www.onlinegdb.com/';
+
+  // Popup window dimensions and features
+  const width = 1000;
+  const height = 600;
+  const left = (window.innerWidth - width) / 2;
+  const top = (window.innerHeight - height) / 2;
+
+  // Create an iframe
+  const iframe = document.createElement('iframe');
+  iframe.src = githubLink;
+  iframe.width = width;
+  iframe.height = height;
+  iframe.style.border = 'none'; // Hide the iframe border
+
+  // Open the popup window with the iframe
+  const popupWindow = window.open('', 'Virtual Instance', `width=${width},height=${height},left=${left},top=${top}`);
+  
+  // Set the title of the iframe window
+  popupWindow.document.title = 'ABC';
+  
+  // Set location to an empty string to remove about:blank
+  popupWindow.location = '';
+  
+  popupWindow.document.body.appendChild(iframe);
+}
+</script>
+
+</body>
+</html>
